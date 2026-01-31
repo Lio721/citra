@@ -1,0 +1,119 @@
+/* Reset de base */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Fond gris clair pour faire ressortir la "page" */
+    font-family: 'Georgia', 'Times New Roman', serif; /* Police type journal/livre */
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+/* Conteneur principal qui imite une feuille de papier */
+.document-container {
+    max-width: 650px; /* Largeur idéale pour la lecture */
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 40px 25px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+/* Typographie */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #2c3e50;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #7f8c8d;
+    margin-top: 5px;
+}
+
+h2 {
+    border-bottom: 2px solid #d35400; /* Orange brûlé rappelant le Cintra */
+    padding-bottom: 10px;
+    margin-top: 40px;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #d35400;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify; /* Comme dans un livre/journal */
+    font-size: 1.05rem;
+}
+
+/* Images */
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 20px 0;
+    filter: sepia(20%); /* Petit effet rétro */
+}
+
+/* Encadré spécial pour le Gang des Lyonnais */
+.highlight-box {
+    background-color: #f9f2ec;
+    border-left: 4px solid #d35400;
+    padding: 20px;
+    margin: 20px 0;
+    font-style: italic;
+}
+
+/* Liste des plats */
+.menu-item {
+    margin-bottom: 25px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 10px;
+}
+
+.dish-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: block;
+    color: #2c3e50;
+}
+
+.menu-item p {
+    margin: 5px 0 0 0;
+    font-size: 0.95rem;
+    color: #555;
+    text-align: left;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.8rem;
+    color: #aaa;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+/* Adaptation Mobile stricte */
+@media (max-width: 600px) {
+    .document-container {
+        padding: 20px;
+        box-shadow: none; /* Sur mobile, on enlève l'effet "feuille posée" */
+    }
+    h1 { font-size: 2rem; }
+}
