@@ -1,119 +1,139 @@
-/* Reset de base */
+/* --- BASE --- */
 body {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Fond gris clair pour faire ressortir la "page" */
-    font-family: 'Georgia', 'Times New Roman', serif; /* Police type journal/livre */
-    color: #1a1a1a;
+    background-color: #f4f1ea; /* Papier journal vieilli */
+    font-family: 'Lora', serif;
+    color: #2a2a2a;
     line-height: 1.6;
 }
 
-/* Conteneur principal qui imite une feuille de papier */
-.document-container {
-    max-width: 650px; /* Largeur idéale pour la lecture */
+.paper-sheet {
+    max-width: 700px;
     margin: 0 auto;
     background-color: #ffffff;
     padding: 40px 25px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
-/* Typographie */
-header {
-    text-align: center;
-    margin-bottom: 40px;
+/* --- IMAGES & FILTRES --- */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+    display: block;
+    margin: 15px auto;
 }
 
-h1 {
-    font-size: 2.5rem;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #2c3e50;
+/* Filtre pour les photos d'archives */
+.sepia {
+    filter: sepia(0.3) contrast(1.1);
 }
 
-.subtitle {
-    font-style: italic;
-    color: #7f8c8d;
-    margin-top: 5px;
+.full-width-img {
+    width: 100%;
+    margin: 25px 0;
 }
+
+/* --- TYPO --- */
+header { text-align: center; margin-bottom: 50px; border-bottom: 2px solid #a4131e; padding-bottom: 20px; }
+.main-logo { max-width: 250px; margin-bottom: 10px; }
+.subtitle { font-style: italic; color: #666; font-family: 'Playfair Display', serif; }
 
 h2 {
-    border-bottom: 2px solid #d35400; /* Orange brûlé rappelant le Cintra */
-    padding-bottom: 10px;
-    margin-top: 40px;
-    font-size: 1.5rem;
-    color: #2c3e50;
-}
-
-h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: #d35400;
-}
-
-p {
-    margin-bottom: 15px;
-    text-align: justify; /* Comme dans un livre/journal */
-    font-size: 1.05rem;
-}
-
-/* Images */
-img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin: 20px 0;
-    filter: sepia(20%); /* Petit effet rétro */
-}
-
-/* Encadré spécial pour le Gang des Lyonnais */
-.highlight-box {
-    background-color: #f9f2ec;
-    border-left: 4px solid #d35400;
-    padding: 20px;
-    margin: 20px 0;
-    font-style: italic;
-}
-
-/* Liste des plats */
-.menu-item {
-    margin-bottom: 25px;
-    border-bottom: 1px dashed #ddd;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #a4131e; /* Rouge Cintra */
+    margin-top: 60px;
+    border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
 }
 
-.dish-name {
-    font-weight: bold;
-    font-size: 1.1rem;
-    display: block;
-    color: #2c3e50;
+h3, h4 { font-family: 'Playfair Display', serif; color: #111; margin-bottom: 5px; }
+p { font-size: 1.1rem; text-align: justify; margin-bottom: 15px; }
+.small { font-size: 0.9rem; color: #555; }
+
+/* Lettrine */
+.drop-cap::first-letter {
+    font-size: 3.5rem;
+    float: left;
+    line-height: 0.8;
+    padding-right: 10px;
+    color: #a4131e;
+    font-family: 'Playfair Display', serif;
 }
 
-.menu-item p {
-    margin: 5px 0 0 0;
-    font-size: 0.95rem;
-    color: #555;
-    text-align: left;
-}
+/* --- LAYOUTS --- */
+.row { display: flex; align-items: center; gap: 20px; margin: 25px 0; }
+.reverse { flex-direction: row-reverse; }
+.text-col { flex: 2; }
+.img-col { flex: 1; }
 
-ul li {
-    margin-bottom: 10px;
-}
-
-footer {
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
     text-align: center;
-    margin-top: 50px;
-    font-size: 0.8rem;
-    color: #aaa;
-    border-top: 1px solid #eee;
-    padding-top: 20px;
 }
 
-/* Adaptation Mobile stricte */
+/* Boites spéciales */
+.highlight-box {
+    background: #fdf6f6;
+    border-left: 5px solid #a4131e;
+    padding: 20px;
+    margin: 30px 0;
+    overflow: hidden;
+}
+
+.float-img { float: left; width: 100px; margin-right: 15px; margin-bottom: 5px; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.float-img-right { float: right; width: 100px; margin-left: 15px; margin-bottom: 5px; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+/* --- GASTRONOMIE CARDS --- */
+.menu-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 15px;
+}
+.menu-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%; /* Rond */
+    margin: 0;
+    border: 2px solid #eee;
+}
+.menu-content h3 { margin-top: 0; color: #a4131e; font-size: 1.2rem; }
+.menu-content p { font-size: 0.95rem; margin: 0; text-align: left; }
+
+blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #444;
+    text-align: center;
+    margin: 40px 0;
+    padding: 20px;
+    border-top: 1px solid #a4131e;
+    border-bottom: 1px solid #a4131e;
+}
+
+/* --- BARRE DE PROGRESSION --- */
+.progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 5px; z-index: 100; background: transparent; }
+.progress-bar { height: 5px; background: #a4131e; width: 0%; }
+
+footer { text-align: center; color: #999; font-size: 0.8rem; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; }
+
+/* MOBILE */
 @media (max-width: 600px) {
-    .document-container {
-        padding: 20px;
-        box-shadow: none; /* Sur mobile, on enlève l'effet "feuille posée" */
-    }
-    h1 { font-size: 2rem; }
+    .paper-sheet { padding: 15px; width: auto; box-shadow: none; }
+    .row { flex-direction: column; }
+    .reverse { flex-direction: column; }
+    .img-col, .text-col { width: 100%; }
+    h2 { font-size: 1.6rem; margin-top: 40px; }
+    .menu-card { flex-direction: column; text-align: center; }
+    .menu-content p { text-align: center; }
 }
